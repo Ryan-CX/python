@@ -11,6 +11,7 @@ class AddThreeGame:
         self.played = []
         self.p1_3sum = 0
         self.p2_3sum = 0
+        self.turn = ''
         self.stats = UNFINISHED
 
     def get_current_state(self):
@@ -25,9 +26,14 @@ class AddThreeGame:
             print('Out of range, re-pick the number')
             return False
 
-        if player == 'first':
+        if player == 'first' and self.turn == 'first':
+            print('First player just played')
+            return False
+
+        elif player == 'first' and self.turn != 'first':
             self.played.append(number)
             self.p1_hand.append(number)
+            self.turn = 'first'
 
             for i in range(0, len(self.p1_hand) - 2):
                 for j in range(i + 1, len(self.p1_hand) - 1):
@@ -38,9 +44,15 @@ class AddThreeGame:
                             print('Player 1 has won')
                             return True
 
-        elif player == 'second':
+
+        if player == 'second' and self.turn == 'second':
+            print("second player just played")
+            return False
+        elif player == 'second' and self.turn != 'second':
+
             self.played.append(number)
             self.p2_hand.append(number)
+            self.turn = 'second'
 
             for i in range(0, len(self.p2_hand) - 2):
                 for j in range(i + 1, len(self.p2_hand) - 1):
@@ -51,6 +63,7 @@ class AddThreeGame:
                             print('Player 2 has won')
                             return True
 
+
         if self.p1_3sum == self.p2_3sum == 15:
             self.stats = DRAW
 
@@ -59,9 +72,11 @@ class AddThreeGame:
 
 
 game = AddThreeGame()
-game.make_move("second", 2)
+#
 game.make_move("first", 8)
-game.make_move("second", 9)
 game.make_move("first", 6)
-game.make_move("second", 4)
-game.make_move("first", 1)
+# game.make_move("second", 9)
+# game.make_move("first", 6)
+# game.make_move("second", 4)
+# game.make_move("first", 1)
+# game.make_move("second", 2)
