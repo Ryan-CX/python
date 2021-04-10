@@ -1,4 +1,6 @@
-from functools import reduce
-a = 39
-print(reduce(int.__mul__,map(int,'39')))
-# print(reduce(int.__mul__, 39)
+a = [1, 2, 4,3]
+
+def addition(n):
+    return n + 2
+
+print(list(map(addition,a)))
