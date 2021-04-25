@@ -1,6 +1,3 @@
-a = [1, 2, 4,3]
-
-def addition(n):
-    return n + 2
-
-print(list(map(addition,a)))
+my_list = ['apple', 'banana', 'grapes', 'pear']
+for counter, value in enumerate(my_list):
+    print (counter, value)
