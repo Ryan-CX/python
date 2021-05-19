@@ -1,55 +1,22 @@
-# class Node:
-#     def __init__(self, data):
-#         self.data = data
-#         self.next = None
+#Given an integer n, break it into the sum of k positive integers, where k >= 2, and maximize the product of those integers.
+
+# Return the maximum product you can get.
+
  
 
-# # Allocates a new node with given data
-# def newNode(data):
-#     new_node = Node(data)
-#     new_node.data = data
-#     new_node.next = None
-#     return new_node
- 
-# # Function to insert a new node at the
-# # end of linked list using recursion.
+# Example 1:
+
+# Input: n = 2
+# Output: 1
+# Explanation: 2 = 1 + 1, 1 × 1 = 1.
 
 
-# def insertEnd(head, data):
-     
-#     # If linked list is empty, create a
-#     # new node (Assuming newNode() allocates
-#     # a new node with given data)
-#     if (head == None):
-#         return newNode(data)
- 
-#     # If we have not reached end,
-#     # keep traversing recursively.
-#     else:
-#         head.next = insertEnd(head.next, data)
-#     return head
- 
-# def traverse(head):
-#     if (head == None):
-#         return
-     
-#     # If head is not None, print current node
-#     # and recur for remaining list
-#     print(head.data, end = " ");
-#     traverse(head.next)
- 
-# # Driver code
-# if __name__=='__main__':  #[]
-
-#     head = None
-#     head = insertEnd(head, 6)
-#     head = insertEnd(head, 8)
-#     head = insertEnd(head, 10)
-#     head = insertEnd(head, 12)
-#     head = insertEnd(head, 14)
-#     traverse(head)
- 
-# # This code is contributed by sapna singh
-
-
-print(10//3)
+def integerBreak(self, n:int) -> int:
+    if n < 4:
+        return n -1
+    elif n % 3 == 0:  #6=> 3,3=>9
+        return 3 ** (n // 3 )
+    elif n % 3 == 1: #10=>3,3,4=>36
+        return 4 * (3 ** ((n // 3 )-1))
+    else:   # 14>3,3,3,3,2
+        return 3 ** (n // 3) * 2
