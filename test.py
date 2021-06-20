@@ -1,2 +1,2 @@
-num = [1,1,2]
-print(list(set(num)))
+
+print(ord('4')-ord('0'))
