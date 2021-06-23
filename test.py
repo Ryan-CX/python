@@ -1,2 +1,3 @@
-
-print(ord('4')-ord('0'))
+strs = ["flower","flow","flight"]
+strs.remove('flower')
+print(strs)
