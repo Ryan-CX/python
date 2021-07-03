@@ -1,3 +1,1 @@
-res = ['']
-res.append('abc')
-print(res)
+print([1]+[])
